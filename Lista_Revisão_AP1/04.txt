@@ -1,0 +1,22 @@
+a. Nome da classe: Livro
+   Livro: Classe e Construtor
+   Campos: isbn, titulo, autor, ano (todos string) e espessura (int)
+   Métodos: descricao, getISBN, getEspessura, setEspessura
+   Tipos:
+        descricao, getISBN: String
+        getEspessura: int
+        setEspessura: void
+   Visibilidade:
+        Livro (classe e construtor), descricao, getISBN, getEspessura, setEspessura: visibilidade pública
+   Parâmetros:
+        Livro: isbn, titulo, autor, ano (todos string), e espessura (int)
+        setEspessura: espessura (int)
+
+b. Possui construtor:
+        Nome: Livro
+        Visibilidade pública
+        Parâmetros: isbn, titulo, autor, ano (todos string), e espessura (int)
+
+c. O único método que altera valores de atributos é o setEspessura
+
+d. É possível modificar a espessura de um livro nesta classe, porque embora um livro físico não possa ter suas características modificadas arbitrariamente, em um sistema que armazena esse dado, é possível que o valor atribuído possa estar errado e necessite de correção.

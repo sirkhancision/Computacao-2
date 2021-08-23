@@ -1,0 +1,17 @@
+Linha 02: imprime "true"
+Linha 05: imprime "B"
+Linha 10: imprime "B"
+Linha 13: imprime "B"
+Linha 14: imprime "false"
+
+Caso de teste 1:
+        Pilha com tamanho negativo:
+                Não seria possível atribuir algum elemento à pilha, por não ter memória suficiente alocada para essa operação, resultando em erro.
+
+Caso de teste 2:
+        Desempilhamento de pilha vazia:
+                Nada impede que o usuário utiilze o método "desempilha" até mesmo quando a pilha estiver vazia, fazendo com que o atributo "topo" diminua cada vez mais, e imprima um valor errado quando o método "vazia" for chamado.
+
+Caso de teste 3:
+        Entrada de caracteres de escape:
+                É possível que, por exemplo, o usuário pressione acidentalmente a tecla enter, sem digitar algo, e o caractere de quebra de linha seja armazenado como elemento da pilha, imprimindo a quebra de linha caso seja requisitado a impressão do elemento.

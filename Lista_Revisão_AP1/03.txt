@@ -1,0 +1,1 @@
+Os atributos de uma classe dizem respeito às variáveis nela pertencentes, os quais podem ter um valor atribuído por meio de construtores assim que um objeto é criado, e por fim, os métodos de uma classe realizam funções específicas que necessitam de algum atributo, seja ele dado por construtores ou não.

@@ -1,0 +1,1 @@
+Seguindo as boas práticas, os atributos de uma classe devem ser privadas, para serem acessadas somente por si própria. Dessa forma, um objeto de uma classe que segue esse princípio, comunicaria-se com outro por meio de métodos que têm acesso à sua respectiva classe.
