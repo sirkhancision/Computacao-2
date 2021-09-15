@@ -1,7 +1,7 @@
 package sisloc.operacao;
 import java.util.Date;
 
-public class Operacao implements IRepositorioOperacao {
+public class Operacao {
 	Date data;
 	long cpf;
 	int codigo;

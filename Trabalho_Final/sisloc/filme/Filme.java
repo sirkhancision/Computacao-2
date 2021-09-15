@@ -2,7 +2,7 @@ package sisloc.filme;
 import java.util.Date;
 import java.util.Vector;
 
-public class Filme implements IRepositorioFilme {
+public class Filme {
 	int codigo;
 	String titulo;
 	Vector<String> genero = new Vector<>();

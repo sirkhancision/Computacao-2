@@ -1,6 +1,6 @@
 package sisloc.cliente;
 
-public class Cliente implements IRepositorioCliente {
+public class Cliente {
 	private long cpf;
 	private String nome;
 	private String endereco;
@@ -35,6 +35,6 @@ public class Cliente implements IRepositorioCliente {
 
 	public void imprimir() {
 		System.out.println("Nome: " + getNome() + " | CPF: " + getCpf()
-		+ " | Endereço: " + getEndereco());
+			+ " | Endereço: " + getEndereco());
 	}
 }
