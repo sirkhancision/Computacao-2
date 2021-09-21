@@ -36,7 +36,7 @@ public class Operacao {
 		return this.codigo;
 	}
 
-	private void setAtivo(boolean ativo) {
+	protected void setAtivo(boolean ativo) {
 		this.ativo = ativo;
 	}
 
