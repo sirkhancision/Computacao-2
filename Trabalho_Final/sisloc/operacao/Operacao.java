@@ -12,7 +12,7 @@ public class Operacao {
         setCodigo(codigo);
     }
 
-    protected void setData(Date data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -20,7 +20,7 @@ public class Operacao {
         return this.data;
     }
 
-    private void setCpf(long cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -28,7 +28,7 @@ public class Operacao {
         return this.cpf;
     }
 
-    private void setCodigo(int codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -36,7 +36,7 @@ public class Operacao {
         return this.codigo;
     }
 
-    protected void setAtivo(boolean ativo) {
+    public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
 

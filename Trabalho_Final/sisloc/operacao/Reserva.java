@@ -7,7 +7,7 @@ public class Reserva extends Operacao {
         super(cpf, codigo);
     }
 
-    protected void setPrioridade(int prioridade) {
+    public void setPrioridade(int prioridade) {
         this.prioridade = prioridade;
     }
 

@@ -6,58 +6,31 @@ public class RepositorioCliente implements IRepositorioCliente {
 
     public void cadastrar(Cliente cliente) {
         try {
-            if (buscar(cliente.getCpf()) == null)
-                this.clientes.add(cliente);
-            else
-                throw new IllegalArgumentException(
-                    "Cliente já cadastrado.");
-        } catch (IllegalArgumentException erro) {
-            System.out.println(erro.getMessage());
+            buscar(cliente.getCpf());
+            throw new IllegalArgumentException(
+                "Cliente já cadastrado.\n");
+        } catch(ArrayIndexOutOfBoundsException erro) {
+            this.clientes.add(cliente);
         }
     }
 
     public Cliente buscar(long cpf) {
-        try {
-            if ((this.clientes.isEmpty() == false) &&
-                (cpf == (long) cpf))
-                    for (Cliente cliente : this.clientes)
-                        if (cliente.getCpf() == cpf)
-                            return cliente;
-            else if (cpf != (long) cpf)
-                throw new IllegalArgumentException(
-                    "Número digitado não é inteiro.");
-        } catch (IllegalArgumentException erro) {
-            System.out.println(erro.getMessage());
-        }
+        for (Cliente cliente : this.clientes)
+            if (cliente.getCpf() == cpf)
+                return cliente;
         
-        return null;
+        throw new ArrayIndexOutOfBoundsException("Cliente não cadastrado.\n");
     }
 
     public void atualizar(Cliente cliente) {
-        try {
-            if (buscar(cliente.getCpf()) != null)
-                this.clientes.set(
-                    this.clientes.indexOf(cliente),
-                        cliente);
-            else
-                throw new NoSuchFieldException(
-                    "Cliente inexistente.");
-        } catch (NoSuchFieldException erro) {
-            System.out.println(erro.getMessage());
-        }
+        this.clientes.set(this.clientes.indexOf(buscar(cliente.getCpf())),
+            cliente);
     }
 
     public void deletar(long cpf) {
-        Cliente cliente;
-        try {
-            if ((cliente = buscar(cpf)) != null)
-                this.clientes.remove(cliente);
-            else
-                throw new NoSuchFieldException(
-                    "Cliente inexistente.");
-        } catch (NoSuchFieldException erro) {
-            System.out.println(erro.getMessage());
-        }
+        Cliente cliente = buscar(cpf);
+
+        this.clientes.remove(cliente);
     }
 
     public Cliente[] listar() {
@@ -68,7 +41,7 @@ public class RepositorioCliente implements IRepositorioCliente {
                 return this.clientes.toArray(clientesArray);
             } else
                 throw new ArrayIndexOutOfBoundsException(
-                    "Nenhum cliente cadastrado.");
+                    "Nenhum cliente cadastrado.\n");
         } catch (ArrayIndexOutOfBoundsException erro) {
             System.out.println(erro.getMessage());
         }

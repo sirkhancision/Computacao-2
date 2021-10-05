@@ -2,7 +2,7 @@ package sisloc.operacao;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class RepositorioOperacao {
+public class RepositorioOperacao implements IRepositorioOperacao {
     private ArrayList<Operacao> operacoes = new ArrayList<Operacao>();
 
     public void cadastrar(Operacao operacao) {
@@ -13,8 +13,6 @@ public class RepositorioOperacao {
 
         if (operacao instanceof Locacao)
             ((Locacao) operacao).setPeriodo(0);
-        else if (operacao instanceof Reserva)
-            ((Reserva) operacao).setPrioridade(0);
 
         this.operacoes.add(operacao);
     }
@@ -32,8 +30,11 @@ public class RepositorioOperacao {
                 }
             }
         }
-
-        return (index > 0) ? reservasAtivasCliente : null;
+        
+        if (index > 0)
+            return reservasAtivasCliente;
+        else
+            throw new NullPointerException("O cliente não possui reservas.\n");
     }
 
     public Locacao[] buscarLocacoes(long cpf) {
@@ -50,7 +51,10 @@ public class RepositorioOperacao {
             }
         }
 
-        return (index > 0) ? locacoesAtivasCliente : null;
+        if (index > 0)
+            return locacoesAtivasCliente;
+        else
+            throw new NullPointerException("O cliente não possui locações.\n");
     }
 
     public void deletarReserva(long cpf, int codigo) {
@@ -62,7 +66,7 @@ public class RepositorioOperacao {
                     break;
             }
         }
-    } // altera o status da reserva do filme com dado codigo, reservado pelo cliente de dado cpf, para inativa
+    }
 
     public void deletarLocacao(long cpf, int codigo) {
         Locacao[] locacoesCliente = buscarLocacoes(cpf);
@@ -73,7 +77,7 @@ public class RepositorioOperacao {
                     break;
             }
         }
-    } // altera o status da locação do filme com dado codigo, reservado pelo cliente de dado cpf, para inativa
+    }
 
     public Locacao[] listarLocacoes(long cpf) {
         Locacao[] locacoesCliente = new Locacao[this.operacoes.size()];
@@ -89,7 +93,10 @@ public class RepositorioOperacao {
             }
         }
 
-        return (index > 0) ? locacoesCliente : null;
+        if (index > 0)
+            return locacoesCliente;
+        else
+            throw new NullPointerException("O cliente não possui locações.\n");
     }
 
     public int numeroLocacoes(long cpf) {
@@ -109,7 +116,8 @@ public class RepositorioOperacao {
     }
 
     public int numeroLocacoesAtivas(long cpf) {
-        return buscarLocacoes(cpf).length;
+            Locacao[] locacoes = buscarLocacoes(cpf);
+            return locacoes.length;
     }
 
     public int numeroLocacoesAtivas(int codigo) {

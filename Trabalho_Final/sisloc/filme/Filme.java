@@ -1,5 +1,8 @@
 package sisloc.filme;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Vector;
 
 public class Filme {
@@ -19,7 +22,7 @@ public class Filme {
         setTitulo(titulo);
     }
 
-    private void setCodigo(int codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -27,7 +30,7 @@ public class Filme {
         return this.codigo;
     }
 
-    private void setTitulo(String titulo) {
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
@@ -35,7 +38,7 @@ public class Filme {
         return this.titulo;
     }
 
-    private void setGenero(Vector<String> genero) {
+    public void setGenero(Vector<String> genero) {
         this.genero = genero;
     }
 
@@ -43,11 +46,11 @@ public class Filme {
         return this.genero;
     }
 
-    private void addGenero(String genero) {
+    public void addGenero(String genero) {
         this.genero.add(genero);
     }
 
-    private void setDataLancamento(Date dataLancamento) {
+    public void setDataLancamento(Date dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 
@@ -55,7 +58,7 @@ public class Filme {
         return this.dataLancamento;
     }
 
-    private void setDiretor(String diretor) {
+    public void setDiretor(String diretor) {
         this.diretor = diretor;
     }
 
@@ -63,7 +66,7 @@ public class Filme {
         return this.diretor;
     }
 
-    private void setAtores(Vector<String> atores) {
+    public void setAtores(Vector<String> atores) {
         this.atores = atores;
     }
 
@@ -71,11 +74,11 @@ public class Filme {
         return this.atores;
     }
 
-    private void addAtor(String ator) {
+    public void addAtor(String ator) {
         this.atores.add(ator);
     }
 
-    private void setSinopse(String sinopse) {
+    public void setSinopse(String sinopse) {
         this.sinopse = sinopse;
     }
 
@@ -83,7 +86,7 @@ public class Filme {
         return this.sinopse;
     }
 
-    private void setProdutores(Vector<String> produtores) {
+    public void setProdutores(Vector<String> produtores) {
         this.produtores = produtores;
     }
 
@@ -91,11 +94,11 @@ public class Filme {
         return this.produtores;
     }
 
-    private void addProdutor(String produtor) {
+    public void addProdutor(String produtor) {
         this.produtores.add(produtor);
     }
 
-    private void setPrecoLocacao(float precoLocacao) {
+    public void setPrecoLocacao(float precoLocacao) {
         this.precoLocacao = precoLocacao;
     }
 
@@ -103,7 +106,7 @@ public class Filme {
         return this.precoLocacao;
     }
 
-    private void setNumeroCopias(int numeroCopias) {
+    public void setNumeroCopias(int numeroCopias) {
         this.numeroCopias = numeroCopias;
     }
 
@@ -112,10 +115,24 @@ public class Filme {
     }
 
     public void imprimir() {
-        System.out.println("Título: " + getTitulo() + " | Código: " +
-            getCodigo() + "\nGêneros: " + getGenero() +
-            " | Data de Lançamento: " + getDataLancamento() + "\nAtores: "
-            + getAtores() + " | Diretor: " + getDiretor() + "\nSinopse: " +
-            getSinopse());
+        SimpleDateFormat formatadorData = new SimpleDateFormat("dd/MM/yyyy");
+        NumberFormat formatadorFloat = new DecimalFormat("#0.00");
+
+        System.out.println("Título: " + getTitulo() +
+            " | Código: " + getCodigo() +
+            "\nGêneros: " + (getGenero().isEmpty() == false ? getGenero()
+            : "Indefinido") +
+            " | Data de Lançamento: " + (getDataLancamento() != null ?
+            formatadorData.format(getDataLancamento()) : "Indefinido") +
+            "\nAtores: " + (getAtores().isEmpty() == false ? getAtores() :
+            "Indefinido") +
+            " | Diretor: " + (getDiretor() != null ?
+            getDiretor() : "Indefinido") +
+            " | Produtores: " + (getProdutores().isEmpty() == false ?
+            getProdutores() : "Indefinido") +
+            "\nPreço: " + formatadorFloat.format(getPrecoLocacao()) +
+            " | Número de cópias: " + getNumeroCopias() +
+            "\nSinopse: " + (getSinopse() != null ?
+            getSinopse() : "Indefinido"));
     }
 }

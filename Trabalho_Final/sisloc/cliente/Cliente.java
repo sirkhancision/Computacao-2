@@ -9,7 +9,7 @@ public class Cliente {
         setCpf(cpf);
     }
 
-    private void setCpf(long cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -17,7 +17,7 @@ public class Cliente {
         return this.cpf;
     }
 
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -25,7 +25,7 @@ public class Cliente {
         return this.nome;
     }
 
-    private void setEndereco(String endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
@@ -34,7 +34,10 @@ public class Cliente {
     }
 
     public void imprimir() {
-        System.out.println("Nome: " + getNome() + " | CPF: " + getCpf()
-            + " | Endereço: " + getEndereco());
+        System.out.println("Nome: " + (getNome() != null ? getNome() :
+            "Indefinido") +
+            " | CPF: " + getCpf() +
+            " | Endereço: " + (getEndereco() != null ? getEndereco() :
+            "Indefinido"));
     }
 }

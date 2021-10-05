@@ -7,7 +7,7 @@ public class Locacao extends Operacao {
         super(cpf, codigo);
     }
 
-    protected void setPeriodo(int periodo) {
+    public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
 
